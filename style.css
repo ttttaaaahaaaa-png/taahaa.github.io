@@ -1,0 +1,473 @@
+/* Reset و تنظیمات پایه */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f9c5d1 0%, #c2e9fb 100%);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    padding: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* هدر */
+header {
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: #ff6b8b;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px rgba(255,107,139,0.5); }
+    to { text-shadow: 0 0 20px rgba(255,107,139,0.8); }
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+/* بخش پروفایل */
+.profile-section {
+    margin: 50px 0;
+}
+
+.profile-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto;
+}
+
+.profile-frame {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* حلقه چرخان */
+.rotating-ring {
+    position: absolute;
+    width: 115%;
+    height: 115%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, 
+        #ff6b8b 0%, 
+        #ffd166 25%, 
+        #06d6a0 50%, 
+        #118ab2 75%, 
+        #ff6b8b 100%);
+    animation: rotate 4s linear infinite;
+    z-index: 1;
+    filter: blur(12px);
+    opacity: 0.9;
+}
+
+/* حلقه پالس اضافی */
+.pulse-ring {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    border-radius: 50%;
+    border: 3px dashed #ff6b8b;
+    opacity: 0.4;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.05); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 0.4; }
+}
+
+/* عکس پروفایل */
+.profile-img {
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 10px solid white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.profile-img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.upload-hint {
+    position: absolute;
+    bottom: -40px;
+    background: rgba(255,107,139,0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* بخش بیو */
+.bio-section {
+    margin: 50px 0;
+}
+
+.bio {
+    background: linear-gradient(to left, #f8f9fa, #e9ecef);
+    padding: 35px;
+    border-radius: 25px;
+    border-left: 8px solid #ff6b8b;
+    text-align: right;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.bio h2 {
+    color: #118ab2;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bio p {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #ff6b8b, #ff8e9e);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.3s;
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+}
+
+/* بخش شبکه‌های اجتماعی */
+.social-section {
+    margin: 60px 0;
+}
+
+.section-title {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, #ff6b8b, #118ab2);
+    border-radius: 2px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.social-card {
+    width: 180px;
+    padding: 25px;
+    border-radius: 25px;
+    background: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.social-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+/* افکت نورانی روی هاور */
+.social-card[data-social="instagram"]:hover {
+    border-color: #E4405F;
+    background: linear-gradient(145deg, #fff, #ffeef1);
+}
+
+.social-card[data-social="telegram"]:hover {
+    border-color: #0088cc;
+    background: linear-gradient(145deg, #fff, #e8f7ff);
+}
+
+.social-icon-wrapper {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon {
+    font-size: 2.8rem;
+    position: relative;
+    z-index: 2;
+}
+
+.social-card[data-social="instagram"] .social-icon {
+    color: #E4405F;
+}
+
+.social-card[data-social="telegram"] .social-icon {
+    color: #0088cc;
+}
+
+.icon-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.social-card:hover .icon-glow {
+    opacity: 1;
+    animation: glowPulse 1.5s infinite;
+}
+
+.social-card[data-social="instagram"] .icon-glow {
+    background: radial-gradient(circle, rgba(228,64,95,0.3) 0%, transparent 70%);
+}
+
+.social-card[data-social="telegram"] .icon-glow {
+    background: radial-gradient(circle, rgba(0,136,204,0.3) 0%, transparent 70%);
+}
+
+@keyframes glowPulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+.social-card h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.social-link {
+    display: block;
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    word-break: break-all;
+    transition: color 0.3s;
+}
+
+.social-card:hover .social-link {
+    color: #ff6b8b;
+    text-decoration: underline;
+}
+
+.social-desc {
+    color: #888;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* بخش سئو (مخفی) */
+.seo-section {
+    opacity: 0.7;
+    margin-top: 50px;
+}
+
+.seo-text {
+    text-align: right;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.seo-text h3 {
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+/* فوتر */
+footer {
+    margin-top: 50px;
+    color: #777;
+    font-size: 0.95rem;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+.footer-note {
+    font-size: 0.85rem;
+    color: #999;
+    font-style: italic;
+}
+
+.fa-heart {
+    color: #ff6b8b;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .container {
+        padding: 30px;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .profile-container {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .bio {
+        padding: 25px;
+    }
+    
+    .bio h2 {
+        font-size: 1.6rem;
+    }
+    
+    .social-links {
+        gap: 25px;
+    }
+    
+    .social-card {
+        width: 160px;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .profile-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-card {
+        width: 90%;
+        max-width: 250px;
+    }
+    
+    .bio {
+        padding: 20px;
+    }
+    
+    .bio h2 {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
